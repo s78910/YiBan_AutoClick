@@ -17,6 +17,7 @@ public class User {
     private String location;
     private Boolean morningClick;
     private Boolean noonClick;
+    private Boolean summerClick;
     private Boolean sendEmail;
     private Date urlGenerateDate;
 

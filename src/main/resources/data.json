@@ -5,10 +5,11 @@
             "email": "123456789@qq.com",
             "name": "div",
             "id": "1",
-            "url": "http://yiban.sust.edu.cn/v4/public/index.php?key=UgDiaae52zQCknb214MOffHfSsf980tqShXZCCoLB-=FwI41fujydVlG2gcoaU4JeJFEgAhX/EePLckCpGPNoVqS4W15m5y4WeFARZ/f2wQY=",
+            "url": "http://yiban.sust.edu.cn/v4/public/index.php?key=UgDiaae52zQCk222ShXZCCo3I41fujydVl4oaU4JeJFEgAhX/EePLckCpGPNoVqS4W15m5y4WeFARZ/f2wQY=",
             "location": "陕西省 西安市 未央区 111县道 111县 靠近北城驾校",
             "morning_click": true,
             "noon_click": true,
+            "summer_click": true,
             "send_email":true
         }
     ]
