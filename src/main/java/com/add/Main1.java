@@ -4,10 +4,7 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
-import com.add.domain.Clock;
-import com.add.domain.MorningClock;
-import com.add.domain.NoonClock;
-import com.add.domain.User;
+import com.add.domain.*;
 import com.add.exception.BaseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,6 +50,7 @@ public class Main1 {
 
         Clock morningClock = new MorningClock();
         Clock noonClock = new NoonClock();
+        Clock summerClock = new SummerClock();
         //当前时间
         Date now = DateUtil.date();
         System.out.println(now);
@@ -62,6 +60,9 @@ public class Main1 {
             }
             if (user.getNoonClick() && noonClock.validTime(now)) {
                 noonClock.clock(user);
+            }
+            if (user.getSummerClick() && summerClock.validTime(now)) {
+                summerClock.clock(user);
             }
         }
 
