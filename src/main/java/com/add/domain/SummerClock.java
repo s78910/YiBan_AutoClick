@@ -31,9 +31,9 @@ public class SummerClock extends Clock{
         bodyMap.put("13[0][1][name]", "form[13][field_1587635142_8919][]");bodyMap.put("13[0][1][value]", "正常");
         bodyMap.put("13[0][2][name]", "form[13][field_1587635252_7450][]");bodyMap.put("13[0][2][value]", location);
         bodyMap.put("13[0][3][name]", "form[13][field_1587635509_7740][]");bodyMap.put("13[0][3][value]", "否");
-        bodyMap.put("13[0][4][name]", "form[13][field_1587998920_6988][]");bodyMap.put("13[0][4][value]", "0");
+        bodyMap.put("13[0][4][name]", "form[13][field_1587998920_6988][]");bodyMap.put("13[0][4][value]", "");
         bodyMap.put("13[0][5][name]", "form[13][field_1587998777_8524][]");bodyMap.put("13[0][5][value]", "否");
-        bodyMap.put("13[0][6][name]", "form[13][field_1587635441_3730][]");bodyMap.put("13[0][6][value]", "0");
+        bodyMap.put("13[0][6][name]", "form[13][field_1587635441_3730][]");bodyMap.put("13[0][6][value]", "");
         Map<String, Object> encodeBodyMap = new HashMap<String, Object>();
         for (String key : bodyMap.keySet()) {
             String v = (String) bodyMap.get(key);
