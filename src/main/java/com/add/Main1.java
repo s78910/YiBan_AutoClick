@@ -46,7 +46,7 @@ public class Main1 {
     }
 
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
+    public static void main(String[] args) {
 
         Clock morningClock = new MorningClock();
         Clock noonClock = new NoonClock();
@@ -56,13 +56,13 @@ public class Main1 {
         System.out.println(now);
         for (User user : users) {
             if (user.getMorningClick() && morningClock.validTime(now)) {
-                morningClock.clock(user);
+                morningClock.clockAndSendEmail(user);
             }
             if (user.getNoonClick() && noonClock.validTime(now)) {
-                noonClock.clock(user);
+                noonClock.clockAndSendEmail(user);
             }
             if (user.getSummerClick() && summerClock.validTime(now)) {
-                summerClock.clock(user);
+                summerClock.clockAndSendEmail(user);
             }
         }
 

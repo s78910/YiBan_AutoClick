@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public class ExceptionStatus {
 
-    //不需要发邮件
-    public static int NOT_CONSUME = 0;//无需消费
+    //发邮件
+    public static int CLOCK_FAIL = 0;
 
     //需要发邮件
     public static int CLICK_PART_FAIL = -2;//部分失败

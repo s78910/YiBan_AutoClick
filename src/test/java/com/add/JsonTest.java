@@ -60,15 +60,7 @@ public class JsonTest {
 
     @Test
     public void Test3() throws UnsupportedEncodingException {
-        File file = new File("data.json");
-        JSON jsonStr = JSONUtil.readJSON(file, Charset.forName("utf-8"));
-        String usersStr = JSONUtil.parseObj(jsonStr).getStr("users");
-        JSONArray objects = JSONUtil.parseArray(usersStr);
 
-        List<User> users = objects.toList(User.class);
-        User user = users.get(0);
-
-        Map<String, Object> requestBody = Main.getClickRequestBody(user, 24);
     }
 
 

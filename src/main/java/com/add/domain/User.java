@@ -22,10 +22,4 @@ public class User {
     private Date urlGenerateDate;
 
 
-    public int getClickSumCount() {
-        int res = 0;
-        if (morningClick == true) res ++;
-        if (noonClick == true) res ++;
-        return res;
-    }
 }

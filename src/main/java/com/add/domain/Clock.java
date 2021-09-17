@@ -5,6 +5,7 @@ import cn.hutool.http.Header;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONUtil;
+import com.add.exception.BaseException;
 import com.add.util.EmailUtil;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,8 +46,7 @@ public abstract class Clock {
     }
 
 
-
-    public void clock(User user) throws UnsupportedEncodingException {
+    public boolean clock(User user) throws UnsupportedEncodingException {
         //获取session
         String session = null;
         for (int i = 0 ; i < 3 ; i ++) {
@@ -59,7 +59,6 @@ public abstract class Clock {
         //获取打卡请求体
         Map<String, Object> requestBodyMap = getClockRequestBody(user);
         //构建打卡请求
-        HttpResponse response = null;
         HttpRequest request = HttpRequest.post(url)
                 .contentType("application/x-www-form-urlencoded")
                 .charset("utf-8")
@@ -71,13 +70,25 @@ public abstract class Clock {
 
         //doClock
         boolean res = doClock(user, request);
+        return res;
+    }
 
-        if (res == true && user.getSendEmail() == true) {
-            sendSuccessEmail(user);
-        } else if (res == false && user.getSendEmail() == true) {
-            sendFailureEmail(user);
+    public void clockAndSendEmail(User user) {
+        try {
+            //打卡
+            boolean res = clock(user);
+            if (user.getSendEmail() == false) return; //特判无须打卡
+            //失败
+            if (res == false) {
+                sendFailureEmail(user, new BaseException(ExceptionStatus.CLOCK_FAIL, "打卡请求失败!"));
+                return ;
+            }
+        } catch (Exception e) {
+            //异常，发送失败打卡邮件
+            sendFailureEmail(user, e);
+            return ;
         }
-
+        sendSuccessEmail(user);
     }
 
 
@@ -119,10 +130,11 @@ public abstract class Clock {
         }
     }
 
-    public void sendFailureEmail(User user) {
+    public void sendFailureEmail(User user, Exception e) {
         String email = user.getEmail();
         String title = getName() + "失败!";
-        String content = user.getName() + "," + getName() +"打卡失败。\n\r";
+        String content = user.getName() + "," + getName() +"打卡失败。\n\r" +
+                e.getMessage() + "\n\r";
         Date now = DateUtil.date();
         content += now;
         if (email != null) {

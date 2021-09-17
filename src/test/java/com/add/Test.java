@@ -1,7 +1,6 @@
 package com.add;
 
 import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.util.RandomUtil;
 import com.add.domain.Clock;
 import com.add.domain.MorningClock;
 import com.add.domain.NoonClock;
@@ -9,8 +8,12 @@ import com.add.domain.User;
 
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class Test {
@@ -59,9 +62,5 @@ public class Test {
 
     @org.junit.Test
     public void test2() {
-        List<User> users = Main1.users;
-        Clock morningClock = new MorningClock();
-        Clock noonClock = new NoonClock();
-        morningClock.sendFailureEmail(users.get(0));
     }
 }
