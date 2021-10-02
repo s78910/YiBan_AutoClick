@@ -2,6 +2,8 @@
 
 本项目是基于[SUST易班打卡](https://github.com/N0I0C0K/SUST_autocheck_public)进行重构的。本项目是使用Java语言。
 
+**个人已经使用单人配置打卡了2个多月了,极其稳定**
+
 # 项目功能
 
 1. 易班晨午检自动打卡。
